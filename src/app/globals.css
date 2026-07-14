@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: #f7f8f8;
+  --foreground: #18201d;
+  --card: #ffffff;
+  --card-foreground: #18201d;
+  --primary: #12634d;
+  --primary-foreground: #ffffff;
+  --secondary: #e9f3ef;
+  --secondary-foreground: #174d3e;
+  --muted: #f1f3f2;
+  --muted-foreground: #62706b;
+  --border: #dfe4e2;
+  --ring: #12634d;
+}
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-geist-sans), system-ui, sans-serif; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 3px solid color-mix(in srgb, var(--ring) 32%, transparent); outline-offset: 2px; }
+summary::-webkit-details-marker { display: none; }
+
+@media (max-width: 767px) {
+  .profile-table thead { display: none; }
+  .profile-table, .profile-table tbody, .profile-table tr, .profile-table td { display: block; width: 100%; }
+  .profile-table tr { padding: .95rem; border: 1px solid var(--border); border-radius: .75rem; }
+  .profile-table tr + tr { margin-top: .75rem; }
+  .profile-table td { padding: .28rem 0; border: 0; display: grid; grid-template-columns: 7.25rem 1fr; gap: .75rem; }
+  .profile-table td::before { content: attr(data-label); color: var(--muted-foreground); font-size: .75rem; font-weight: 600; }
+}
