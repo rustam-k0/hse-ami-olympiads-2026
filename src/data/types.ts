@@ -15,6 +15,13 @@ export type OlympiadStage = {
   endDate?: string;
   format?: "online" | "offline" | "hybrid";
   location?: string;
+  sourceUrl?: string;
+};
+
+export type DataSource = {
+  title: string;
+  url: string;
+  checkedAt: string;
 };
 
 export type OlympiadProfile = {
@@ -32,6 +39,11 @@ export type Olympiad = {
   name: string;
   profiles: OlympiadProfile[];
   officialUrl?: string;
+  organizer?: string;
+  scheduleAcademicYear?: "2026/27";
+  scheduleStatus?: "PUBLISHED" | "NO_CONFIRMED_DATES";
+  scheduleNote?: string;
+  sources?: DataSource[];
   federalLevel?: 1 | 2 | 3;
   registrationStart?: string;
   registrationEnd?: string;

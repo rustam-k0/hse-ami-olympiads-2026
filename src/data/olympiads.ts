@@ -1,4 +1,5 @@
 import type { BenefitRule, BenefitType, Exam, Olympiad } from "./types";
+import { olympiadEnrichment } from "./olympiad-enrichment";
 
 // Точная транскрипция 53 строк раздела 4 исходного файла.
 const sourceRows = `001|Всероссийская олимпиада школьников «Высшая проба»|информатика|информатика|информатика|90|BVI|информатика|WINNER
@@ -78,5 +79,5 @@ for (const row of rows) {
   byName.set(row.name, olympiad);
 }
 
-export const olympiads: Olympiad[] = [...byName.values()];
+export const olympiads: Olympiad[] = [...byName.values()].map((olympiad) => ({ ...olympiad, ...olympiadEnrichment[olympiad.name] }));
 export const sourceRuleCount = rows.length;
